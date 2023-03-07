@@ -1,7 +1,7 @@
 # Project Name
 
 **Author**: Nate Brown
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.0.1 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
 
@@ -26,12 +26,7 @@ App written in React. Incorporates LocationIQ API.
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
-2204 06 Mar 2023 - Site Deployed to Netlify
-2212 06 Mar 2023 - Netlify Preview function test passed
-2217 06 Mar 2023 - LocationIQ API key added to .env
-2220 06 Mar 2023 - LocationIQ API key added to Netlify environment variables
-
-
+2221 06 Mar 2023 - v1.0.1 - React repository and API key setup complete
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
@@ -39,12 +34,32 @@ App written in React. Incorporates LocationIQ API.
 Time Estimates
 For each of the lab features, make an estimate of the time it will take you to complete the feature, and record your start and finish times for that feature:
 
-Name of feature: ________________________________
+Name of feature: Set up React repository and API keys
+Estimate of time needed to complete: 30 min
+Start time: 2200
+Finish time: 2221
+Actual time needed to complete: 21 min
 
-Estimate of time needed to complete: _____
+Name of feature: Locations
+Estimate of time needed to complete: 30 min
+Start time: 2224
+Finish time: 
+Actual time needed to complete: 
 
-Start time: _____
+Name of feature: Map
+Estimate of time needed to complete: 
+Start time: 
+Finish time: 
+Actual time needed to complete: 
 
-Finish time: _____
+Name of feature: Errors
+Estimate of time needed to complete: 
+Start time: 
+Finish time: 
+Actual time needed to complete: 
 
-Actual time needed to complete: _____
+Name of feature: 
+Estimate of time needed to complete: 
+Start time: 
+Finish time: 
+Actual time needed to complete: 
