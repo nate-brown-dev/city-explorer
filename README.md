@@ -26,6 +26,11 @@ App written in React. Incorporates LocationIQ API.
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
+2204 06 Mar 2023 - Site Deployed to Netlify
+2212 06 Mar 2023 - Netlify Preview function test passed
+2217 06 Mar 2023 - LocationIQ API key added to .env
+2220 06 Mar 2023 - LocationIQ API key added to Netlify environment variables
+
 
 
 ## Credit and Collaborations
