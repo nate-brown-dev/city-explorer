@@ -43,23 +43,19 @@ Actual time needed to complete: 21 min
 Name of feature: Locations
 Estimate of time needed to complete: 30 min
 Start time: 2224
-Finish time: 
-Actual time needed to complete: 
+Finish time: 2348
+Actual time needed to complete: Incomplete
 
 Name of feature: Map
 Estimate of time needed to complete: 
-Start time: 
+Start time: NA
 Finish time: 
-Actual time needed to complete: 
+Actual time needed to complete: NA
 
 Name of feature: Errors
 Estimate of time needed to complete: 
-Start time: 
+Start time: NA
 Finish time: 
-Actual time needed to complete: 
+Actual time needed to complete: NA
 
-Name of feature: 
-Estimate of time needed to complete: 
-Start time: 
-Finish time: 
-Actual time needed to complete: 
+![WRRC Diagram](img/WRRC_diagram.png)
