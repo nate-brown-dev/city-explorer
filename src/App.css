@@ -10,3 +10,27 @@
   justify-content: space-between;
 }
 
+.mainClass {
+  color: black;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mainForm {
+  height: 300px;
+}
+
+main div {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li {
+  list-style-type: none;
+}
