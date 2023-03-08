@@ -1,4 +1,5 @@
 import React from 'react';
+import './Main.css';
 import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 
@@ -8,7 +9,7 @@ class Main extends React.Component {
 
     return (
       <>
-        <main>
+        <main className="mainClass">
           <h2>Main</h2>
           <div className="mainForm">
           <Form onSubmit={this.props.citySubmit}>

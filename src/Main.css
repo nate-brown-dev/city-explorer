@@ -1,0 +1,9 @@
+main {
+  color: black;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
