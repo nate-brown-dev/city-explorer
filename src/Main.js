@@ -13,7 +13,7 @@ class Main extends React.Component {
           <h2>Main</h2>
           <div className="mainForm">
           <Form onSubmit={this.props.citySubmit}>
-            <Form.Label>Pick a City
+            <Form.Label>Explore!
               <Form.Control type="text" onChange={this.props.handleCityInput} name="city"/>
             </Form.Label>
             <Button type="submit">Submit</Button>
