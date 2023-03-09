@@ -6,7 +6,7 @@ import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import './App.css';
-import Weather from './Weather';
+// import Weather from './Weather';
 
 
 class App extends React.Component {
@@ -88,7 +88,7 @@ class App extends React.Component {
           <div className="mainDiv">
             <p>{cityNamesList[0]}</p>
             {/* <img src={mapURL} alt='map of selected city' /> */}
-            <Weather/>
+            {/* <Weather/> */}
           </div>
           <div className="mainDiv">
             <ul>
