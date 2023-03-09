@@ -6,57 +6,67 @@ import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import './App.css';
+import Weather from './Weather';
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cityName: '',
-      cityData: [],
-      error: false,
-      errorMessage: ''
+      cityName: '',           /* form input                           empty until submit                                  */
+      cityData: [],           /* results from LocationIQ API call     empty until response received                       */
+      error: false,           /* error flag                           false unless LocationIQ API call fails              */
+      errorMessage: '',       /* text to show in case of error        empty unless error flag is true                     */
+      isMapDisplayed: false,  /* map flag                             false until LocationIQ API call response received   */
+      mapURL: '',             /* query string to get map image        empty until LocationIQ API call response received   */
+      weatherData: []
     }
   }
 
-
+  // event handler for form submit, changes cityName in state
   handleCityInput = (event) => {
     this.setState({
       cityName: event.target.value
     });
   }
 
-  citySubmit = async (event) => {
+  // event handler for API call to LocationIQ, sends cityName from state
+  handleCitySubmit = async (event) => {
     event.preventDefault();
-    console.log(this.state.cityName);
+    // API call to LocationIQ with name from form
     let cityResults = await axios.get(`https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.cityName}&format=json`);
-
+    // put query results into cityData in state 
     this.setState({
       cityData: cityResults.data
     });
+    this.handleWeatherSubmit();
+  }
 
-    console.log(this.state.cityData);
-    console.log(cityResults.data[0]);
+  // weather submit function separated, called from city submit function
+  handleWeatherSubmit = async (event) => {
+    // request format: http://localhost:3001/city?cityName=Seattle
+
+    let weatherResults = await axios.get(`${process.env.REACT_APP_SERVER}city?cityName=${this.state.cityName}`);
+    // let weatherResults = await axios.get(`https://api.weatherbit.io/v2.0/current?&city=${this.state.cityName}&key=KEY&include=minutely`);
+    console.log(weatherResults);
+    // weatherbit request format: https://api.weatherbit.io/v2.0/current?lat=35.7796&lon=-78.6382&key=API_KEY&include=minutely
+    this.setState({
+      weatherData: weatherResults.data
+    });
+    console.log(this.state.weatherData);
   }
 
   render() {
 
     let cityNamesList = this.state.cityData.map((cityData, index) => {
-      return <li key={index}>{cityData.display_name}</li>
+      return <li key={index}>{cityData.display_name}: Latitude {cityData.lat}, Longitude {cityData.lon}</li>
     })
 
-    let cityLatList = this.state.cityData.map((cityData, index) => {
-      return <li key={index}>{cityData.lat}</li>
+    let cityForecast = this.state.weatherData.map((weatherData, index) => {
+      return <li key={index}>On {weatherData.date} there will be {weatherData.description}.</li>
     })
-
-    let cityLonList = this.state.cityData.map((cityData, index) => {
-      return <li key={index}>{cityData.lon}</li>
-    })
-
-    // let mapURL = ''
-
-
-    console.log(this.state.cityData);
+    
+    // let mapURL = this.state.mapURL;
 
     return (
       <>
@@ -64,10 +74,10 @@ class App extends React.Component {
         {/* <Main/> */}
         <>
         <main className="mainClass">
-          <div>
+          <div className="mainDiv">
           <h2>Enter a Place in the Form</h2>
-          <div className="mainForm">
-          <Form onSubmit={this.citySubmit}>
+          <div>
+          <Form onSubmit={this.handleCitySubmit}>
             <Form.Label>Pick a City
               <Form.Control type="text" onChange={this.handleCityInput}/>
             </Form.Label>
@@ -75,14 +85,18 @@ class App extends React.Component {
           </Form>
           </div>
           </div>
-          <div className="results">
+          <div className="mainDiv">
             <p>{cityNamesList[0]}</p>
-            <p>{cityLatList[0]}</p>
-            <p>{cityLonList[0]}</p>
+            {/* <img src={mapURL} alt='map of selected city' /> */}
+            <Weather/>
+          </div>
+          <div className="mainDiv">
+            <ul>
+              {cityForecast}
+            </ul>
           </div>
         </main>
       </>
-
         <Footer/>
       </>
     )

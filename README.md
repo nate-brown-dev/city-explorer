@@ -1,7 +1,7 @@
 # Project Name
 
 **Author**: Nate Brown
-**Version**: 1.0.1 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.0.2 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
 
@@ -27,6 +27,7 @@ App written in React. Incorporates LocationIQ API.
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
 2221 06 Mar 2023 - v1.0.1 - React repository and API key setup complete
+0328 09 Mar 2023 - v1.0.2 - Forecast results from server display
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
