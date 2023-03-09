@@ -88,7 +88,7 @@ class App extends React.Component {
           <div className="mainDiv">
             <p>{cityNamesList[0]}</p>
             {/* <img src={mapURL} alt='map of selected city' /> */}
-            <Weather/>
+            {/* <Weather/> */}
           </div>
           <div className="mainDiv">
             <ul>
