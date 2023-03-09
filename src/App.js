@@ -47,7 +47,7 @@ class App extends React.Component {
     // request format: http://localhost:3001/city?cityName=Seattle
 
     let weatherResults = await axios.get(`${process.env.REACT_APP_SERVER}city?cityName=${this.state.cityName}`);
-    // let weatherResults = await axios.get(`https://api.weatherbit.io/v2.0/current?&city=${this.state.cityName}&key=24cf2cf1dad141779837dbaf1d59df2c&include=minutely`);
+    // let weatherResults = await axios.get(`https://api.weatherbit.io/v2.0/current?&city=${this.state.cityName}&key=KEY&include=minutely`);
     console.log(weatherResults);
     // weatherbit request format: https://api.weatherbit.io/v2.0/current?lat=35.7796&lon=-78.6382&key=API_KEY&include=minutely
     this.setState({
