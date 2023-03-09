@@ -66,7 +66,7 @@ class App extends React.Component {
       return <li key={index}>On {weatherData.date} there will be {weatherData.description}.</li>
     })
     
-    let mapURL = this.state.mapURL;
+    // let mapURL = this.state.mapURL;
 
     return (
       <>
