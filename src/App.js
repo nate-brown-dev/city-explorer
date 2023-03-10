@@ -19,7 +19,8 @@ class App extends React.Component {
       errorMessage: '',       /* text to show in case of error        empty unless error flag is true                     */
       isMapDisplayed: false,  /* map flag                             false until LocationIQ API call response received   */
       mapURL: '',             /* query string to get map image        empty until LocationIQ API call response received   */
-      weatherData: []
+      weatherData: [],
+      cityLatLong: []
     }
   }
 
@@ -30,23 +31,29 @@ class App extends React.Component {
     });
   }
 
+
   // event handler for API call to LocationIQ, sends cityName from state
   handleCitySubmit = async (event) => {
     event.preventDefault();
     // API call to LocationIQ with name from form
-    let cityResults = await axios.get(`https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.cityName}&format=json`);
+     let cityResults = await axios.get(`https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.cityName}&format=json`);
     // put query results into cityData in state 
     this.setState({
       cityData: cityResults.data
     });
-    this.handleWeatherSubmit();
-  }
+    console.log(this.state.cityData);
+    console.log(cityResults.data);
+  //   this.handleWeatherSubmit();
+  // }
 
-  // weather submit function separated, called from city submit function
-  handleWeatherSubmit = async (event) => {
+  // // weather submit function separated, called from city submit function
+  // handleWeatherSubmit = async (event) => {
     // request format: http://localhost:3001/city?cityName=Seattle
+    let cityLatLong = [cityResults.data[0].lat,cityResults.data[0].lon];
+    console.log(cityLatLong);
 
-    let weatherResults = await axios.get(`${process.env.REACT_APP_SERVER}city?cityName=${this.state.cityName}`);
+    let weatherResults = await axios.get(`${process.env.REACT_APP_SERVER}city?lat=${cityResults.data[0].lat}&lon=${cityResults.data[0].lon}`);
+    
     // let weatherResults = await axios.get(`https://api.weatherbit.io/v2.0/current?&city=${this.state.cityName}&key=KEY&include=minutely`);
     console.log(weatherResults);
     // weatherbit request format: https://api.weatherbit.io/v2.0/current?lat=35.7796&lon=-78.6382&key=API_KEY&include=minutely
