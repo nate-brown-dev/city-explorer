@@ -19,7 +19,9 @@ class App extends React.Component {
       errorMessage: '',       /* text to show in case of error        empty unless error flag is true                     */
       isMapDisplayed: false,  /* map flag                             false until LocationIQ API call response received   */
       mapURL: '',             /* query string to get map image        empty until LocationIQ API call response received   */
-      weatherData: []
+      hasWeatherData: false,
+      weatherData: [],
+      cityLatLong: []
     }
   }
 
@@ -30,6 +32,7 @@ class App extends React.Component {
     });
   }
 
+
   // event handler for API call to LocationIQ, sends cityName from state
   handleCitySubmit = async (event) => {
     event.preventDefault();
@@ -37,23 +40,30 @@ class App extends React.Component {
     let cityResults = await axios.get(`https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.cityName}&format=json`);
     // put query results into cityData in state 
     this.setState({
-      cityData: cityResults.data
-    });
-    this.handleWeatherSubmit();
+      cityData: cityResults.data},
+      this.getForecast
+      );
   }
 
-  // weather submit function separated, called from city submit function
-  handleWeatherSubmit = async (event) => {
-    // request format: http://localhost:3001/city?cityName=Seattle
-
-    let weatherResults = await axios.get(`${process.env.REACT_APP_SERVER}city?cityName=${this.state.cityName}`);
-    // let weatherResults = await axios.get(`https://api.weatherbit.io/v2.0/current?&city=${this.state.cityName}&key=KEY&include=minutely`);
-    console.log(weatherResults);
-    // weatherbit request format: https://api.weatherbit.io/v2.0/current?lat=35.7796&lon=-78.6382&key=API_KEY&include=minutely
-    this.setState({
-      weatherData: weatherResults.data
-    });
-    console.log(this.state.weatherData);
+  // function to get weather forecast from Weatherbit API via express server   
+  // request format: http://localhost:3001/city?lat=$LAT&lon=$LON
+  getForecast = async () => {
+    // local variable for weather request
+    let v;
+    try {
+      v = await axios.get(`${process.env.REACT_APP_SERVER}city?lat=${this.state.cityData[0].lat}&lon=${this.state.cityData[0].lon}`);
+      console.log(v);
+      this.setState({
+        hasWeatherData: true,
+        weatherData: v.data
+      });
+      // console.log(this.state.weatherData);
+      // console.log(this.state.hasWeatherData);
+    } catch (e) {
+      let errorMessage = 'An error occurred';
+      v = errorMessage;
+      // console.log(v);
+    }
   }
 
   render() {
