@@ -28,6 +28,7 @@ App written in React. Incorporates LocationIQ API.
 
 2221 06 Mar 2023 - v1.0.1 - React repository and API key setup complete
 0328 09 Mar 2023 - v1.0.2 - Forecast results from server display
+2346 12 Mar 2023 - v1.0.3 - Map displays, API results display on cards, error handling features added, remote APIs used
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
@@ -48,15 +49,15 @@ Finish time: 2348
 Actual time needed to complete: Incomplete
 
 Name of feature: Map
-Estimate of time needed to complete: 
-Start time: NA
-Finish time: 
-Actual time needed to complete: NA
+Estimate of time needed to complete: 1 hour
+Start time: 2200 12 Mar 2023
+Finish time: 2346 12 Mar 2023
+Actual time needed to complete: 1 hr 46 min
 
 Name of feature: Errors
-Estimate of time needed to complete: 
-Start time: NA
-Finish time: 
-Actual time needed to complete: NA
+Estimate of time needed to complete: 2 hours
+Start time: 2200 12 Mar 2023
+Finish time: 2346 12 Mar 2023
+Actual time needed to complete: 1 hr 46 min
 
 ![WRRC Diagram](img/WRRC_diagram.png)

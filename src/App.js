@@ -49,7 +49,7 @@ class App extends React.Component {
         cityData: cityResults.data
       },
       this.getMap
-      );
+      );co
     } catch (e) {
       this.setState({
         error: true,
