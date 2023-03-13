@@ -9,7 +9,7 @@ class Header extends React.Component {
           <h1>City Explorer</h1>
         </header>
       </>
-      )
+      );
   }
 }
 

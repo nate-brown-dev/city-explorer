@@ -10,25 +10,47 @@
   justify-content: space-between;
 }
 
-.mainClass {
-  color: black;
+.mainDiv {
+  width: 600px;
+  height: 120px;
+  margin: auto auto 30px auto;
   display: flex;
-  height: 100%;
   flex-direction: column;
-  /* justify-content: space-between; */
   align-items: center;
+  text-align: center;
+  background-color: aquamarine;
+}
+
+.mainDiv h2 {
+  margin: 15px 0 30px 0;
 }
 
 .mainForm {
-  height: 300px;
+  width: 600px;
+  height: 150px;
+  margin: auto;
+  text-align: center;
 }
 
-.mainDiv {
-  height: 150px;
+.cardClass {
+  width: 600px;
+  min-height: 120px;
+  text-align: center;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   align-items: center;
+  justify-content: space-around;
+  background-color: aquamarine;
+  margin-bottom: 30px;
+}
+
+.cardClass li {
+  padding: 3px;
+}
+
+.cardClass h3 {
+  font-size: larger;
 }
 
 li {
