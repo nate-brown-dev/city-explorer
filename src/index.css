@@ -1,23 +1,23 @@
 * { box-sizing: border-box;
 }
 
-html, body {
+/* html, body {
   height: 100%;
   margin: 0;
 }
-
-body {
+ */
+/* body {
   /* background:
     url("../img/pexels-carlos-oliva-3586966.jpg")
     no-repeat center center fixed;    
-  background-size: cover;*/
+  background-size: cover;
   color: #EEE;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
-a:link {
+ */
+/* a:link {
   color: #EEE;
   text-decoration: underline;
 }
@@ -25,4 +25,4 @@ a:link {
 a:visited {
   color: #AAA;
   text-decoration: underline;
-}
+} */
